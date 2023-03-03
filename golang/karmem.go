@@ -19,6 +19,11 @@ func init() {
 	}
 }
 
+// Writable writes an encoded representation of the type to the underlying Writer.
+type Writable interface {
+	WriteAsRoot(*Writer) (uint, error)
+}
+
 // Writer holds the encoded, the finished encode can be retrieved by Writer.Bytes()
 type Writer struct {
 	Memory  []byte
